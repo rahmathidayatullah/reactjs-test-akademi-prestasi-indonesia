@@ -1,8 +1,10 @@
+/* eslint-disable react/jsx-no-constructed-context-values */
+/* eslint-disable react/prop-types */
 import { createContext, useState } from 'react';
 
 const Context = createContext(null);
 
-const Provider = ({ children }) => {
+function Provider({ children }) {
   const [reload, setReload] = useState(false);
 
   const changeReload = () => {
@@ -10,6 +12,6 @@ const Provider = ({ children }) => {
   };
 
   return <Context.Provider value={{ reload, changeReload }}>{children}</Context.Provider>;
-};
+}
 
 export { Context, Provider };

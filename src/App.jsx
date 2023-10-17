@@ -1,17 +1,16 @@
 import { Routes, Route, Link } from 'react-router-dom';
+import React, { useContext } from 'react';
 import HomePage from './pages/HomePage';
 
-import { useContext } from 'react';
-import { Context } from './context/LocalContext'
+import { Context } from './context/LocalContext';
 
 function App() {
-
   const context = useContext(Context);
-  const { changeReload } = context
+  const { changeReload } = context;
 
   const handleReload = () => {
-    changeReload()
-  }
+    changeReload();
+  };
 
   return (
     <div>
@@ -25,10 +24,10 @@ function App() {
           </ul>
         </div>
       </div>
-      <div className='p-5'>
-        <button className='btn' onClick={handleReload}>Reload Table</button>
+      <div className="p-5">
+        <button type="button" className="btn" onClick={handleReload}>Reload Table</button>
       </div>
-      <main className='p-5'>
+      <main className="p-5">
         <Routes>
           <Route path="/*" element={<HomePage />} />
         </Routes>
